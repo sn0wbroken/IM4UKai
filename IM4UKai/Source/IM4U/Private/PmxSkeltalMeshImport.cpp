@@ -1751,9 +1751,6 @@ void UPmxFactory::ImportMorphTargetsInternal(
 
 		FMorphMeshRawSource TargetMeshRawData(TmpSkeletalMesh);
 		FMorphMeshRawSource BaseMeshRawData(BaseSkelMesh, LODIndex);
-#pragma region Fucking Code
-		// @todo anim: update BaseSkelMesh with my information
-		BaseSkelMesh->RegisterMorphTarget(MorphTarget);
 
 		//MorphTarget->CreateMorphMeshStreams(BaseSource, TargetSource, LODIndex, bCompareNormal);
 
@@ -1862,7 +1859,8 @@ void UPmxFactory::ImportMorphTargetsInternal(
 		MorphModel.Vertices.Shrink();
 		//}
 #pragma endregion
-
+		// @todo anim: update BaseSkelMesh with my information
+		BaseSkelMesh->RegisterMorphTarget(MorphTarget);
 		MorphTarget->MarkPackageDirty();
 
 		//MorphTarget->PostProcess( // TODO 代わりの機能を見つけないと。
@@ -1871,8 +1869,7 @@ void UPmxFactory::ImportMorphTargetsInternal(
 		//	TargetMeshRawData,
 		//	LODIndex, 
 		//	true//ImportOptions->ShouldImportNormals() == false
-		//	);void UMorphTarget::PostProcess( USkeletalMesh * NewMesh, const FMorphMeshRawSource& BaseSource, const FMorphMeshRawSource& TargetSource, int32 LODIndex, bool bCompareNormal)
-#pragma endregion	
+		//	);void UMorphTarget::PostProcess( USkeletalMesh * NewMesh, const FMorphMeshRawSource& BaseSource, const FMorphMeshRawSource& TargetSource, int32 LODIndex, bool bCompareNormal)	
 }
 
 	GWarn->EndSlowTask();
