@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.0.1",
+	"FriendlyName": "Import MMD Model&Motion file For UE4. (IM4UKai)",
+	"Description": "Direct import for MMD Model from Binary Files. alpha Ver. ",
+	"Category": "Developer.ExtendImpoter",
+	"CreatedBy": "bm9  Modified person:Chief",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EnabledByDefault": true,
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "IM4UKai",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}
