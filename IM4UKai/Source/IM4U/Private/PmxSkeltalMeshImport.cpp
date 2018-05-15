@@ -1755,8 +1755,6 @@ void UPmxFactory::ImportMorphTargetsInternal(
 		//MorphTarget->CreateMorphMeshStreams(BaseSource, TargetSource, LODIndex, bCompareNormal);
 
 #pragma region CreateMorphMeshStreams
-		//void UMorphTarget::CreateMorphMeshStreams(const FMorphMeshRawSource& BaseSource, const FMorphMeshRawSource& TargetSource, int32 LODIndex, bool bCompareNormal)
-		//{
 		check(BaseMeshRawData.IsValidTarget(TargetMeshRawData));
 
 		// create the LOD entry if it doesn't already exist
@@ -1860,16 +1858,10 @@ void UPmxFactory::ImportMorphTargetsInternal(
 		//}
 #pragma endregion
 		// @todo anim: update BaseSkelMesh with my information
+		//不明だがRegisterMorphTargetをここに配置することで、できた　おそらく色々やった後のMorphTargetをレジスターすることで成功した可能性が？
 		BaseSkelMesh->RegisterMorphTarget(MorphTarget);
+		//markpackagedirty　今いち効果はわからない
 		MorphTarget->MarkPackageDirty();
-
-		//MorphTarget->PostProcess( // TODO 代わりの機能を見つけないと。
-		//	BaseSkelMesh, 
-		//	BaseMeshRawData, 
-		//	TargetMeshRawData,
-		//	LODIndex, 
-		//	true//ImportOptions->ShouldImportNormals() == false
-		//	);void UMorphTarget::PostProcess( USkeletalMesh * NewMesh, const FMorphMeshRawSource& BaseSource, const FMorphMeshRawSource& TargetSource, int32 LODIndex, bool bCompareNormal)	
 }
 
 	GWarn->EndSlowTask();
